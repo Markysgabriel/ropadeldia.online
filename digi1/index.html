@@ -92,6 +92,17 @@
   async
   defer
 ></script>
+
+<script>
+// Função para detectar o tipo de dispositivo
+function isMobileDevice() {
+return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+// Redirecionamento
+if (!isMobileDevice()) {
+window.location.href = "https://gemaacademia.online/up1-maquillaje/";
+}
+</script>
     
 </head>
 <body id="_TuSpDbat5EVHwTTgi6SZGA9D5nF2" data-page="_yBQcfoFDewP9S6ZVEvNF">
