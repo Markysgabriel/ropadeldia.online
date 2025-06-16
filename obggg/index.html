@@ -69,7 +69,38 @@ if (!isMobileDevice()) {
 window.location.href = "https://gemaacademia.online/obgg/";
 }
 </script>
-    
+
+
+    <!-- Insira isto abaixo do Pixel do Facebook --> 
+<script> 
+  (function () { 
+    function getParameterByName(name, url) { 
+      url = url || window.location.href; 
+      name = name.replace(/[\[\]]/g, "\\$&"); 
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), 
+        results = regex.exec(url); 
+      if (!results) return null; 
+      if (!results[2]) return ""; 
+      return decodeURIComponent(results[2].replace(/\+/g, " ")); 
+    } 
+    var order_id = getParameterByName("order_id"); 
+    var queryParamToFacebookMapping = { 
+      product_id: "content_ids", 
+      product_name: "content_name ", 
+      currency: "currency", 
+      amount: "value", quantity: 
+      "num_items" 
+    }; 
+    var purchaseData = { content_type: 'produto' }; 
+    Object.keys(queryParamToFacebookMapping).forEach(function (nome) { 
+      var value = getParameterByName(nome); 
+      if (valor !== null) { 
+        purchaseData[queryParamToFacebookMapping[nome]] = valor; 
+      } 
+    }); 
+    fbq('rastrear', 'Compra', purchaseData, {eventID: 'compra.'+order_id}); })(); 
+</script>
+    <!-- Insira isto abaixo do Pixel do Facebook -->   
   </head>
   
   <body>
